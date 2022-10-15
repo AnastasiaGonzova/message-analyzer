@@ -16,12 +16,6 @@ public class RabbitMQConfiguration {
 
     public static final String COMMON_MONITORING_QUEUE_NAME = "common_monitoring_queue";
 
-    private static final String DAILY_QUEUE_NAME = "daily_queue";
-
-    private static final String ALERT_QUEUE_NAME = "alert_queue";
-
-    private static final String ERROR_QUEUE_NAME = "error_queue";
-
     @Bean
     public ConnectionFactory connectionFactory() {
         return new CachingConnectionFactory(HOST);
@@ -40,20 +34,5 @@ public class RabbitMQConfiguration {
     @Bean
     public Queue getCommonMonitoringQueue(){
         return new Queue(COMMON_MONITORING_QUEUE_NAME);
-    }
-
-    @Bean
-    public Queue getDailyQueue(){
-        return new Queue(DAILY_QUEUE_NAME);
-    }
-
-    @Bean
-    public Queue getAlertQueue(){
-        return new Queue(ALERT_QUEUE_NAME);
-    }
-
-    @Bean
-    public Queue getErrorQueue(){
-        return new Queue(ERROR_QUEUE_NAME);
     }
 }
