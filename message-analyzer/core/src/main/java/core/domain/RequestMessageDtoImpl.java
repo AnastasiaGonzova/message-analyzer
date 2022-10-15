@@ -1,9 +1,10 @@
 package core.domain;
 
+import api.RequestMessageDto;
 import lombok.Data;
 
 @Data
-public class RequestMessageDto {
+public class RequestMessageDtoImpl implements RequestMessageDto {
 
     private MessageType messageType;
 

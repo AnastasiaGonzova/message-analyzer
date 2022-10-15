@@ -1,9 +1,10 @@
 package core.service;
 
 import api.RabbitSenderService;
+import api.RequestMessageDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import core.domain.RequestMessageDto;
+import core.domain.RequestMessageDtoImpl;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.core.AmqpTemplate;
