@@ -1,10 +1,9 @@
 package core.service;
 
-import api.RabbitSenderService;
-import api.RequestMessageDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import core.domain.RequestMessageDtoImpl;
+import core.configuration.RabbitMQConfiguration;
+import core.domain.RequestMessageDto;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class RabbitSenderServiceImpl implements RabbitSenderService {
+public class RabbitSenderServiceImpl implements RabbitSenderService{
 
     @NonNull
     private final AmqpTemplate amqpTemplate;
@@ -22,6 +21,8 @@ public class RabbitSenderServiceImpl implements RabbitSenderService {
 
     @Override
     public void sendMessage(RequestMessageDto messageDto, String queue) throws JsonProcessingException {
-        amqpTemplate.convertAndSend(queue, objectMapper.writeValueAsString(messageDto));
+        String message = objectMapper.writeValueAsString(messageDto);
+        amqpTemplate.convertAndSend(queue,  message);
+        System.out.println("Отправлено сообщение " + message + " в очередь " + RabbitMQConfiguration.COMMON_MONITORING_QUEUE_NAME);
     }
 }

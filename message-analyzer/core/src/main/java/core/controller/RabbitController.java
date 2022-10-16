@@ -1,9 +1,9 @@
 package core.controller;
 
-import api.RabbitSenderService;
-import api.RequestMessageDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import core.configuration.RabbitMQConfiguration;
+import core.domain.RequestMessageDto;
+import core.service.RabbitSenderService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
