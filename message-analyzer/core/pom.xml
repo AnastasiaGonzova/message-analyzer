@@ -5,7 +5,7 @@
     <parent>
         <artifactId>dependency-management-bom</artifactId>
         <groupId>org.example</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>../dependency-management-bom/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -26,4 +26,8 @@
             <artifactId>jackson-databind</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>message-analyzer-${project.version}</finalName>
+    </build>
 </project>
