@@ -19,6 +19,7 @@ public class RabbitController {
     @NonNull
     private final RabbitSenderService rabbitSenderService;
 
+
     @PostMapping("/send")
     public void sendMessage(@RequestBody RequestMessageDto messageDto) throws JsonProcessingException {
         rabbitSenderService.sendMessage(messageDto, RabbitMQConfiguration.COMMON_MONITORING_QUEUE_NAME);

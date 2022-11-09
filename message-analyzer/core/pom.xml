@@ -51,6 +51,10 @@
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>liga.medical</groupId>
+            <artifactId>common-core</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
